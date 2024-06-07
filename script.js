@@ -1,3 +1,9 @@
+gsap.to("progress", {
+  value: 100,
+  ease: "none",
+  scrollTrigger: { scrub: 0.3 },
+});
+
 function animateOnPC() {
   gsap.from(".navbar-nav", {
     opacity: 0,
@@ -7,11 +13,11 @@ function animateOnPC() {
   });
   gsap.from(".navbar-brand", {
     opacity: 1,
-    scale: 23,
+    scale: 16,
     duration: 2,
     delay: 3,
-    x: 1940,
-    y: 500,
+    x: 1680,
+    y: 530,
   });
   gsap.from(".ribbon", {
     opacity: 0,
@@ -25,6 +31,12 @@ function animateOnPC() {
     duration: 1,
     delay: 4.5,
   });
+  // gsap.from(".page-heading", {
+  //   opacity: 0,
+  //   y: 100,
+  //   duration: 1,
+  //   delay: 4.5,
+  // });
   gsap.registerPlugin(ScrollTrigger);
 
   const animateRows = (element) => {
@@ -52,7 +64,6 @@ function animateOnPC() {
       opacity: 0,
       y: 80,
       duration: 0.5,
-
       scrollTrigger: {
         trigger: element,
         start: "bottom bottom-=-10px",
@@ -213,3 +224,103 @@ document.querySelectorAll(".work-heading").forEach((workHeading) => {
     });
   });
 });
+const isDesktop = () => {
+  return window.innerWidth;
+};
+
+if (isDesktop()) {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  // Call the scrollToTop function after a short delay on page load
+  window.addEventListener("load", () => {
+    setTimeout(scrollToTop, 100); // Adjust delay as needed (100 milliseconds here)
+  });
+
+  // Function to prevent scrolling for the first 3 seconds after page load
+  const preventScroll = () => {
+    // Disable scrolling by setting overflow to hidden
+    document.body.style.overflow = "hidden";
+
+    // After 3 seconds, enable scrolling by setting overflow back to auto
+    setTimeout(() => {
+      document.body.style.overflow = "auto";
+    }, 3000); // 3000 milliseconds = 3 seconds
+  };
+
+  // Call the preventScroll function when the page is loaded
+  window.addEventListener("load", preventScroll);
+}
+
+if (window.innerWidth <= 600) {
+  gsap.from(".navbar-toggler-icon", {
+    opacity: 0,
+    scale: 0,
+    duration: 2,
+    delay: 3.1,
+  });
+  gsap.from(".navbar-brand", {
+    opacity: 1,
+    scale: 1.5,
+    duration: 2,
+    delay: 3,
+    x: "10%",
+    y: 300,
+  });
+  gsap.from(".ribbon-mobile", {
+    opacity: 0,
+    y: 10,
+    duration: 1,
+    delay: 4,
+  });
+  gsap.from(".modal-mobile", {
+    opacity: 0,
+    duration: 1,
+    delay: 4.5,
+  });
+  const animateDescription = (element) => {
+    gsap.from(element, {
+      opacity: 0,
+      y: 80,
+      duration: 0.5,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: element,
+        start: "bottom bottom-=-20px",
+        toggleActions: "play none none reverse",
+      },
+    });
+  };
+  animateDescription(".description-0");
+  animateDescription(".description-1");
+  animateDescription(".description-2");
+  animateDescription(".description-3");
+  animateDescription(".work-row");
+  animateDescription(".work-row-1");
+  animateDescription(".work-row-2");
+  animateDescription(".work-row-3");
+  animateDescription(".work-row-4");
+  animateDescription(".contact");
+  animateDescription(".mail");
+}
+
+function updateTime() {
+  const now = new Date();
+  const options = {
+    timeZone: "Asia/Kolkata",
+    hour12: true,
+    hour: "numeric",
+    minute: "2-digit",
+  };
+  const formattedTime = now.toLocaleTimeString("en-IN", options);
+  document.getElementById("indian-time").textContent = formattedTime + " IST";
+}
+
+updateTime(); // Call the function once to display the initial time
+
+// Update the time every second
+setInterval(updateTime, 1000);

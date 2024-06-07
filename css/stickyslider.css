@@ -1,0 +1,73 @@
+.card {
+  width: 400px !important;
+  height: 300px !important;
+  border-radius: 20px !important;
+  font-size: 30px !important;
+  text-align: center !important;
+  position: sticky !important;
+  top: 0 !important;
+}
+.card img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 20px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.sliders {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: column !important;
+          flex-direction: column !important;
+  gap: 30px !important;
+}
+.sticky-slider {
+  height: 320px !important;
+  overflow-y: scroll !important;
+  margin-block: 50px !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-wrap: wrap !important;
+      flex-wrap: wrap !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  gap: 100px !important;
+  max-width: 1440px !important;
+  margin: auto !important;
+  padding: 20px;
+}
+.sticky-slider::-webkit-scrollbar {
+  display: none;
+}
+.card-content {
+  background-color: #1e1e1e !important;
+  width: 600px !important;
+  color: white !important;
+  border: none !important;
+  padding-inline: 25px;
+  padding-top: 25px;
+}
+.card-content p:nth-child(1) {
+  font-size: 30px !important;
+}
+.card-content p:nth-child(2) {
+  font-size: 20px !important;
+}
+@media screen and (max-width: 767px) {
+  .slider-2 {
+    display: none !important;
+  }
+  .card {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}

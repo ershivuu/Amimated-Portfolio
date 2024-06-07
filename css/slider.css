@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1e1e1e !important;
+  width: 100%;
+  color: white;
+}
+.project-heading p {
+  text-align: center;
+  font-size: 200px !important;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.594);
+  text-stroke: 1.5px rgba(255, 255, 255, 0.527);
+  color: transparent;
+}
+
+.project-img {
+  position: relative;
+  overflow: hidden;
+  width: 430px;
+  height: 250px;
+  mix-blend-mode: luminosity !important;
+  flex: 0 0 auto;
+  border-radius: 20px;
+  object-fit: contain;
+  z-index: 99999;
+}
+.project-img:hover {
+  mix-blend-mode: normal !important;
+}
+.project-desc {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  padding-left: 10px;
+  background-color: rgba(255, 255, 255, 0.712);
+  width: 100%;
+  color: black;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-family: borna;
+  font-size: 16px;
+}
+
+.project-img:hover .project-desc {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.carousel-card {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 50px !important;
+}
+.carousel-wrapper {
+  max-width: 1500px;
+  margin: auto;
+}
+.carousel-control-prev-icon {
+  position: absolute;
+  left: 0;
+}
+.carousel-control-next-icon {
+  position: absolute;
+  right: 0;
+}
+
+.project-img-mobile {
+  position: relative;
+  overflow: hidden;
+  width: 430px;
+  height: 250px;
+  flex: 0 0 auto;
+  border-radius: 20px;
+  cursor: grab;
+}
+.project-desc-mobile {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  padding-left: 10px;
+  background-color: rgba(255, 255, 255, 0.712);
+  width: 100%;
+  color: black;
+  font-family: borna;
+  font-size: 16px;
+}
+.wrapper-mobile {
+  display: none;
+  margin-top: -10px;
+}
+.wrapper-pc {
+  margin-top: -80px;
+}
+@media screen and (max-width: 767px) {
+  .wrapper-mobile {
+    display: block;
+  }
+  .wrapper-pc {
+    display: none;
+  }
+  .project-img-mobile {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 220px;
+    flex: 0 0 auto;
+    border-radius: 20px;
+  }
+  .project-heading p {
+    font-size: 50px !important;
+  }
+}
+@font-face {
+  font-family: borna;
+  src: url(../assets/fonts/borna-medium-webfont.woff);
+  src: url(../assets/fonts/borna-medium.otf);
+}

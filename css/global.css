@@ -1,3 +1,50 @@
 :root {
   --redColor: #e50914;
 }
+.page-1 {
+  height: 100vh;
+}
+progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border: none;
+  background: transparent;
+}
+progress::-webkit-progress-bar {
+  background: transparent;
+}
+progress::-webkit-progress-value {
+  background-color: var(--redColor);
+  background-attachment: fixed;
+}
+progress::-moz-progress-bar {
+  background-color: var(--redColor);
+  background-attachment: fixed;
+}
+@font-face {
+  font-family: Holimount;
+  src: url(../assets/fonts/Holimount.otf);
+}
+@font-face {
+  font-family: Holimount-swash;
+  src: url(../assets/fonts/Holimount_swash.otf);
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(../assets/fonts/Helvetica.ttf);
+}
+@font-face {
+  font-family: Helvetica-Bold;
+  src: url(../assets/fonts/Helvetica-Bold.ttf);
+}
+@font-face {
+  font-family: borna;
+  src: url(../assets/fonts/borna-medium-webfont.woff);
+  src: url(../assets/fonts/borna-medium.otf);
+}

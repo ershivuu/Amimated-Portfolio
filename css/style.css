@@ -1,17 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 body {
   background-color: #1e1e1e !important;
   color: white !important;
   width: 100%;
-  height: 150vh;
-  overflow-x: hidden !important;
+  /* overflow-x: hidden !important; */
 }
 
 #box {
@@ -21,6 +18,19 @@ body {
 }
 ::-webkit-scrollbar {
   width: 0;
+}
+
+.ribbon-mobile {
+  display: none;
+  text-align: center;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.155);
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 1;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  font-family: borna !important;
 }
 .ribbon {
   margin-top: 5%;
@@ -42,6 +52,8 @@ body {
   position: absolute;
   bottom: 2%;
   right: -8%;
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
   transform: rotate(270deg);
 
   width: 20px !important;
@@ -49,28 +61,48 @@ body {
 }
 .ribbon p {
   font-size: 300px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: rgba(255, 255, 255, 0.155);
   font-weight: bold;
   -webkit-animation: ribbon 250s linear infinite alternate;
   animation: ribbon 250s linear infinite alternate;
-  /* letter-spacing: 2px; */
   -webkit-animation-delay: 5.5s;
   animation-delay: 5.5s;
+  font-family: borna !important;
 }
 .ribbon span {
+  -webkit-animation: pop 1s ease-in-out linear;
   animation: pop 1s ease-in-out linear;
+  -webkit-animation-delay: calc(0.1s * var(--i));
   animation-delay: calc(0.1s * var(--i));
 }
-@keyframes pop {
+@-webkit-keyframes pop {
   0% {
+    -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
   20% {
+    -webkit-transform: translateY(-20px);
     transform: translateY(-20px);
   }
   40%,
   100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@keyframes pop {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  20% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+  40%,
+  100% {
+    -webkit-transform: translateY(0px);
     transform: translateY(0px);
   }
 }
@@ -99,7 +131,22 @@ body {
   bottom: -0.4rem;
   left: 50%;
   -webkit-transform: translate3D(-50%, 0, 0);
+  -ms-transform: translate3D(-50%, 0, 0);
   transform: translate3D(-50%, 0, 0);
+  /* mix-blend-mode: luminosity !important; */
+}
+.modal-mobile {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.modal-mobile img {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  bottom: 0;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 .modal-img img {
   height: 600px;
@@ -126,8 +173,8 @@ body {
 }
 .left-heading p,
 .left-headings p {
-  font-size: 128px;
-  font-family: "Times New Roman", Times, serif;
+  font-size: 120px;
+  font-family: borna !important;
   font-weight: 800;
   line-height: 1;
 }
@@ -167,7 +214,7 @@ body {
 .contact p {
   font-size: 128px;
   font-weight: bold;
-  font-family: "Times New Roman", Times, serif;
+  font-family: borna !important;
 }
 .my-work {
   /* margin: auto; */
@@ -176,7 +223,7 @@ body {
 .work-heading p,
 .work-headings p {
   font-size: 128px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: borna !important;
   font-weight: 800;
   line-height: 1;
   max-width: 1440px;
@@ -189,6 +236,9 @@ body {
   -o-transition: filter 0.3s ease;
   transition: filter 0.3s ease;
   transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+}
+.work-heading a {
+  color: white;
 }
 
 .work-heading:hover {
@@ -206,6 +256,9 @@ body {
 .mail p {
   font-size: 40px;
   letter-spacing: 2px;
+  color: white;
+  text-decoration: none;
+  font-family: borna !important;
 }
 .signature {
   max-width: -webkit-fit-content;
@@ -222,6 +275,7 @@ body {
 }
 .contact {
   margin-top: -5%;
+  font-family: borna !important;
 }
 /* --------------------------------------------- */
 .contact-sign {
@@ -246,66 +300,146 @@ body {
   display: flex;
   width: 100%;
   white-space: nowrap;
-  animation: wave 2s ease-in-out infinite;
+  /* -webkit-animation: wave 2s ease-in-out infinite;
+  animation: wave 2s ease-in-out infinite; */
 }
-.work-ribbon-a {
+/* .work-ribbon-a {
+  position: absolute;
   top: 300px;
+  background: url(../assets/images/service1.png) repeat-x;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+} */
+.work-ribbon-a {
+  /* background: url(../assets/images/service1.png) repeat-x; */
+  position: absolute;
+  top: 300px;
+  /* width: 7000px; */
+
+  /* height: 100%; */
+  height: 100vh;
+  width: 100vw;
+  /* -webkit-animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background-size: contain; */
+  /* -webkit-box-shadow: rgba(255, 255, 255, 0.55) 0px 0px 10px;
+  box-shadow: rgba(255, 255, 255, 0.55) 0px 0px 10px; */
+  object-fit: contain;
 }
+.work-ribbon-a img {
+  width: 100%;
+  height: 300px;
+  /* perspective: 800; */
+}
+
 .work-ribbon-b {
+  background: url(../assets/images/service2.png) repeat-x;
+  position: absolute;
   top: 250px;
+  width: 7000px;
+  height: 100%;
+  -webkit-animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background-size: contain;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.55) 0px 0px 10px;
+  box-shadow: rgba(255, 255, 255, 0.55) 0px 0px 10px;
 }
 .work-ribbon-c {
+  background: url(../assets/images/service3.png) repeat-x;
+  position: absolute;
   top: -150px;
+  width: 7000px;
+  height: 100%;
+  -webkit-animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background-size: contain;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.55) 0px 0px 10px;
+  box-shadow: rgba(255, 255, 255, 0.55) 0px 0px 10px;
 }
 .work-ribbon-d {
+  background: url(../assets/images/service4.png) repeat-x;
+  position: absolute;
   top: -250px;
+  width: 7000px;
+  height: 100%;
+  -webkit-animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background-size: contain;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.55) 0px 0px 10px;
+  box-shadow: rgba(255, 255, 255, 0.55) 0px 0px 10px;
 }
-@media screen and (max-width: 767px) {
-  .modal-img {
-    position: absolute;
-    bottom: 0;
-    left: 0%;
-  }
-  .modal-img img {
-    height: auto;
-    width: 99%;
-  }
-  .left-heading p,
-  .left-headings p {
-    font-size: 50px;
-  }
-  .about .description {
-    display: block;
-  }
-  .description p {
-    font-size: 15px;
-    text-align: end;
-  }
-  .mail p {
-    font-size: 20px;
-  }
-  .contact p {
-    font-size: 30px;
-  }
-  .work-headings p,
-  .work-heading p {
-    font-size: 50px;
-  }
+.skills-wrapper {
+  max-width: 1440px;
+  margin: auto;
+
+  margin-top: 10%;
 }
-@keyframes wave {
+
+@-webkit-keyframes wave {
   0%,
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
   50% {
+    -webkit-transform: translateY(-20px);
     transform: translateY(-20px);
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+@keyframes wave {
+  0% {
+    margin-left: 0;
+    scale: 1;
+  }
+
+  100% {
+    margin-left: -1600px;
+    scale: 1;
+    -webkit-transform: translateZ(100px);
+    transform: translateZ(100px);
+  }
+}
+
+@-webkit-keyframes descAnimation {
+  from {
+    -webkit-transform: translateY(30);
+    transform: translateY(30);
+  }
+  to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 @keyframes descAnimation {
   from {
+    -webkit-transform: translateY(30);
     transform: translateY(30);
   }
   to {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -322,6 +456,8 @@ body {
   margin-bottom: 30px;
 }
 .skill {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 200px;
   height: 200px;
@@ -331,7 +467,11 @@ body {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   border-radius: 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 .skill img {
@@ -344,13 +484,110 @@ body {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 2px;
-  font-family: "Roboto", sans-serif;
+
   text-transform: uppercase;
   text-align: center;
   margin-top: 10px;
 }
 .wrapper-heading p {
-  font-size: 150px;
+  font-size: 120px;
   text-align: center;
-  font-family: "Times New Roman", Times, serif;
+}
+.wrapper-footer {
+  font-family: borna !important;
+}
+.signature-mobile {
+  display: none;
+}
+.signature-mobile img {
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .signature-mobile {
+    display: block;
+  }
+  .signature-pc {
+    display: none;
+  }
+  .work-ribbon img {
+    height: 50px;
+  }
+  .modal-img {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+  }
+  .modal-img img {
+    height: auto;
+    width: 99%;
+  }
+  .left-heading p,
+  .left-headings p {
+    font-size: 25px;
+  }
+  .about .description {
+    display: block;
+  }
+  .description p {
+    font-size: 16px;
+    text-align: end;
+  }
+  .mail p {
+    font-size: 20px;
+  }
+  .contact p {
+    font-size: 30px;
+  }
+  .work-headings p,
+  .work-heading p {
+    font-size: 50px;
+  }
+  .wrapper-heading p {
+    font-size: 50px;
+  }
+  .about-me,
+  .my-work {
+    padding-inline: 20px;
+  }
+  .ribbon {
+    display: none;
+  }
+  .ribbon-mobile {
+    display: block;
+  }
+  .modal-img {
+    display: none;
+  }
+  .modal-mobile {
+    display: block;
+  }
+}
+
+@-webkit-keyframes swell {
+  0%,
+  100% {
+    -webkit-transform: translate3d(0, -25px, 0);
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+}
+
+@keyframes swell {
+  0%,
+  100% {
+    -webkit-transform: translate3d(0, -25px, 0);
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+}
+
+.mail a {
+  text-decoration: none;
+  color: white;
 }
