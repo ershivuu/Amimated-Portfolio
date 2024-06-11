@@ -31,52 +31,7 @@ function animateOnPC() {
     duration: 1,
     delay: 4.5,
   });
-  // gsap.from(".page-heading", {
-  //   opacity: 0,
-  //   y: 100,
-  //   duration: 1,
-  //   delay: 4.5,
-  // });
-  gsap.registerPlugin(ScrollTrigger);
 
-  const animateRows = (element) => {
-    gsap.from(element, {
-      opacity: 0,
-      y: 80,
-      duration: 0.5,
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: element,
-        start: "bottom bottom-=-40px",
-        toggleActions: "play none none reverse",
-      },
-    });
-  };
-
-  animateRows(".about-row");
-  animateRows(".about-row-1");
-  animateRows(".about-row-2");
-  animateRows(".about-row-3");
-  animateRows(".about-row-4");
-
-  const animateContact = (element) => {
-    gsap.from(element, {
-      opacity: 0,
-      y: 80,
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: element,
-        start: "bottom bottom-=-10px",
-        toggleActions: "play none none reverse",
-      },
-    });
-  };
-  animateContact(".contact");
-  animateContact(".work-row");
-  animateContact(".work-row-1");
-  animateContact(".work-row-2");
-  animateContact(".work-row-3");
-  animateContact(".work-row-4");
   gsap.from(".skill-1", {
     opacity: 0,
     x: 0,
@@ -118,6 +73,21 @@ function animateOnPC() {
     },
   });
 
+  gsap.registerPlugin(ScrollTrigger);
+  const animateService = (element) => {
+    gsap.from(element, {
+      opacity: 0,
+      y: 80,
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: element,
+        start: "bottom bottom-=-10px",
+        toggleActions: "play none none reverse",
+      },
+    });
+  };
+  animateService(".mail");
+  animateService(".contact");
   const animateSkillsRow2 = (element, timedelay) => {
     gsap.from(element, {
       opacity: 0,
@@ -271,16 +241,16 @@ if (window.innerWidth <= 600) {
     x: "10%",
     y: 300,
   });
-  gsap.from(".ribbon-mobile", {
-    opacity: 0,
-    y: 10,
-    duration: 1,
-    delay: 4,
-  });
   gsap.from(".modal-mobile", {
     opacity: 0,
     duration: 1,
     delay: 4.5,
+  });
+  gsap.from(".ribbon", {
+    opacity: 0,
+    y: 100,
+    duration: 1,
+    delay: 4,
   });
   const animateDescription = (element) => {
     gsap.from(element, {
@@ -320,7 +290,5 @@ function updateTime() {
   document.getElementById("indian-time").textContent = formattedTime + " IST";
 }
 
-updateTime(); // Call the function once to display the initial time
-
-// Update the time every second
+updateTime();
 setInterval(updateTime, 1000);

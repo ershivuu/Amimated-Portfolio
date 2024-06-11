@@ -1,0 +1,258 @@
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+} */
+
+.set-main-container {
+  background-color: black;
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 14% !important;
+  width: 33% !important;
+  text-align: center !important;
+  background: var(--redColor) !important;
+  color: white !important;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  /* margin-bottom: 10px; */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px !important;
+}
+
+button {
+  /* width: 100%; */
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px !important;
+}
+
+button:hover {
+  background-color: green;
+}
+
+/* dashboard sidebar css */
+
+/* ==========================Font========================== */
+
+@font-face {
+  font-family: "robotoregular";
+  src: url(../fonts/roboto-regular-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "robotoregular", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-primary);
+} */
+
+/* Define the new color variable for red */
+/* Define the new color variable for red */
+:root {
+  --bg-primary: #41444b;
+  --bg-secondary: #1e1e1e; /* Change background color */
+  --bg-active: #fddb3a;
+  --cl-text: #f6f4e6;
+  --redColor: #ff0000; /* Define the red color variable */
+}
+
+/* Navigation styles */
+nav {
+  position: fixed;
+  width: 60px;
+  height: 100%;
+  background: var(--bg-secondary);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+nav.active {
+  width: 300px;
+}
+
+ul {
+  padding-left: 0rem;
+}
+
+nav ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav ul li {
+  list-style: none;
+  width: 100%;
+  position: relative;
+}
+
+nav ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white; /* Set text color to white */
+  transition: 0.2s;
+}
+
+nav ul li a:hover {
+  color: white; /* Ensure text color remains white on hover */
+}
+
+nav ul li:hover a::before {
+  background-color: var(--redColor); /* Change background color on hover */
+  width: 100%;
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: 0.2s;
+}
+
+nav ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+nav ul li a .title {
+  position: relative;
+  font-size: 0.85em;
+}
+
+nav ul li a .icon * {
+  font-size: 1.1em;
+}
+
+nav ul li a.toggle {
+  border-bottom: 3px solid var(--bg-primary);
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+header {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    background: var(--bg-secondary);
+    color: var(--cl-text);
+  }
+
+  header a {
+    color: var(--cl-text);
+  }
+
+  nav {
+    left: -60px;
+  }
+
+  nav.active {
+    left: 0;
+    width: 100%;
+  }
+
+  nav ul li a.toggle {
+    display: none;
+  }
+}
+
+.main-section {
+  margin-left: 8%;
+  margin-right: 4%;
+}
+
+.set-icon {
+  font-size: 24px;
+}
+
+/* Edit Services css */
+.edit-service {
+  margin-top: 55px;
+  color: black;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.set-label {
+  font-size: 20px;
+  font-weight: 500;
+  color: darkslategrey;
+  margin-top: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+/* -----------------------Notification css ----------------------- */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+}
+.notification.show {
+  display: block;
+}
+/* -----------------------Notification css ----------------------- */

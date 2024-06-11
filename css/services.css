@@ -8,6 +8,7 @@ body {
   background-color: #1e1e1e !important;
   width: 100%;
   color: white;
+  /* cursor: url("../assets/logos/cursor.png"), auto !important; */
 }
 .page-heading {
   text-align: center;
@@ -34,22 +35,18 @@ body {
   margin-top: 20%;
 }
 .service {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 150px;
+  gap: 50px;
   padding-block: 30px;
+  padding-inline: 20px;
+}
+.service:nth-of-type(2n) {
+  flex-direction: row-reverse;
 }
 .service-img {
-  cursor: pointer;
   width: 540px;
   max-width: 540px;
   height: 360px;
@@ -60,6 +57,8 @@ body {
   width: inherit;
   height: inherit;
   border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
 }
 
 .service-number {
@@ -173,7 +172,7 @@ body {
     display: none !important;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1320px) {
   .navbar-toggler-icon {
     display: none !important;
   }
@@ -206,4 +205,3 @@ body {
     margin: auto;
   }
 }
-

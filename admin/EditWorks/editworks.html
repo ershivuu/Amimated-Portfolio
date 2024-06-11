@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Works Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../admin.css" />
+  </head>
+  <body>
+    <div>
+      <div class="edit-service">
+        <h1>Works Page</h1>
+      </div>
+      <div class="my-3">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#addWorkModal"
+        >
+          Add New Work
+        </button>
+      </div>
+      <div class="table-responsive">
+        <table id="workTable" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Project Heading</th>
+              <th>Project Content</th>
+              <th>Project Image</th>
+              <th>Edit Project</th>
+              <th>Edit Project</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- Bootstrap Modal for Add Work Form -->
+      <div>
+        <div
+          class="modal fade"
+          id="addWorkModal"
+          tabindex="-1"
+          aria-labelledby="addWorkModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addWorkModalLabel">Add New Work</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="addWorkForm">
+                  <div class="mb-3">
+                    <label for="heading" class="form-label"
+                      >Project Heading</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="heading"
+                      name="heading"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="content" class="form-label"
+                      >Project Content</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="content"
+                      name="content"
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="work_img" class="form-label"
+                      >Project Image URL</label
+                    >
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="work_img"
+                      name="work_img"
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="notification" class="notification"></div>
+      </div>
+
+      <div>
+        <div
+          class="modal fade"
+          id="editWorkModal"
+          tabindex="-1"
+          aria-labelledby="editWorkModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editWorkModalLabel">Edit Work</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form id="editWorkForm">
+                  <div class="mb-3">
+                    <label for="editHeading" class="form-label"
+                      >Project Heading</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="editHeading"
+                      name="editHeading"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="editContent" class="form-label"
+                      >Project Content</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="editContent"
+                      name="editContent"
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="editWorkImg" class="form-label"
+                      >Project Image URL</label
+                    >
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="editWorkImg"
+                      name="editWorkImg"
+                    />
+                    <div id="originalFileName"></div>
+                  </div>
+                  <input type="hidden" id="editWorkId" name="editWorkId" />
+                  <button type="submit" class="btn btn-success">Update</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="notification" class="notification"></div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="deleteConfirmationModal"
+        tabindex="-1"
+        aria-labelledby="deleteConfirmationModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteConfirmationModalLabel">
+                Confirm Deletion
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this work?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="confirmDeleteBtn"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../admin.js"></script>
+    <script>
+      function showNotification(message) {
+        const notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.classList.add("show");
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
+
+      function enforceWordLimit(inputElement, wordLimit, notificationMessage) {
+        inputElement.addEventListener("input", (event) => {
+          const input = event.target.value.trim();
+          const wordCount = input.split(/\s+/).length;
+          if (wordCount > wordLimit) {
+            showNotification(notificationMessage);
+            event.target.value = input
+              .split(/\s+/)
+              .slice(0, wordLimit)
+              .join(" ");
+          }
+        });
+      }
+
+      async function fetchWorksData() {
+        try {
+          const response = await fetch(`${apiUrl}/section_works`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          console.log("Fetched data:", data); // Debugging statement
+          displayWorksData(data);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+
+      function displayWorksData(data) {
+        const tableBody = document.querySelector("#workTable tbody");
+        tableBody.innerHTML = "";
+        data.forEach((item) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${item.heading}</td>
+            <td>${item.content}</td>
+            <td><img src="${item.work_img}" alt="Project Image" style="width: 100px;"></td>
+            <td>
+              <button class="btn btn-warning editBtn" data-bs-toggle="modal" data-bs-target="#editWorkModal" data-id="${item.idsection_works}">Edit</button>
+            </td>
+            <td>
+           <button class="btn btn-danger deleteBtn" data-id="${item.idsection_works}">Delete</button>
+              </td>
+          `;
+          tableBody.appendChild(row);
+        });
+
+        // Add event listeners to edit buttons
+        document.querySelectorAll(".editBtn").forEach((btn) => {
+          btn.addEventListener("click", async () => {
+            const workId = btn.getAttribute("data-id");
+            console.log("Edit button clicked, Work ID:", workId); // Debugging statement
+            const work = await fetchWorkById(workId);
+            console.log("Fetched work data for editing:", work); // Debugging statement
+            fillEditForm(work);
+          });
+        });
+
+        document.querySelectorAll(".deleteBtn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const workId = btn.getAttribute("data-id");
+            console.log("delete button clicked, Work ID:", workId);
+
+            // Show Bootstrap modal for confirmation
+            const deleteConfirmationModal = new bootstrap.Modal(
+              document.getElementById("deleteConfirmationModal")
+            );
+            deleteConfirmationModal.show();
+
+            // Set event listener for confirm delete button inside the modal
+            document
+              .getElementById("confirmDeleteBtn")
+              .addEventListener("click", async () => {
+                console.log("Delete button clicked, Work ID:", workId); // Debugging statement
+                deleteWork(workId);
+                deleteConfirmationModal.hide();
+              });
+          });
+        });
+      }
+
+      async function fetchWorkById(workId) {
+        const apiUrlWithId = `${apiUrl}/section_works/${workId}`;
+        try {
+          const response = await fetch(apiUrlWithId);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return await response.json();
+        } catch (error) {
+          console.error("Error fetching work by ID:", error);
+        }
+      }
+
+      async function deleteWork(workId) {
+        const apiUrlDeleteId = `${apiUrl}/section_works/${workId}`;
+        try {
+          const response = await fetch(apiUrlDeleteId, { method: "DELETE" });
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          fetchWorksData();
+        } catch (error) {
+          console.error("Error deleting work:", error);
+        }
+      }
+
+      function fillEditForm(work) {
+        if (!work) {
+          console.error("No work data provided to fillEditForm.");
+          return;
+        }
+
+        console.log("Work data received in fillEditForm:", {
+          id: work.idsection_works,
+          heading: work.heading,
+          content: work.content,
+          work_img_original_name: work.work_img_original_name,
+        });
+
+        const editHeadingInput = document.querySelector("#editHeading");
+        const editContentInput = document.querySelector("#editContent");
+        const editWorkImgInput = document.querySelector("#editWorkImg");
+        const editWorkIdInput = document.querySelector("#editWorkId");
+        const originalFileNameContainer =
+          document.querySelector("#originalFileName");
+
+        // Populate form fields with data from the selected row
+        editHeadingInput.value = work.heading || "-";
+        editContentInput.value = work.content || "-";
+        editWorkIdInput.value = work.idsection_works;
+
+        // Clear any previous original file name
+        originalFileNameContainer.innerHTML = "";
+
+        // Display original file name below the file input
+        const originalFileName = document.createElement("p");
+        originalFileName.textContent = `Current File : ${
+          work.work_img_original_name || "-"
+        }`;
+        originalFileNameContainer.appendChild(originalFileName);
+      }
+
+      const editWorkForm = document.querySelector("#editWorkForm");
+      editWorkForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append(
+          "heading",
+          document.querySelector("#editHeading").value
+        );
+        formData.append(
+          "content",
+          document.querySelector("#editContent").value
+        );
+        formData.append(
+          "work_img",
+          document.querySelector("#editWorkImg").files[0]
+        );
+
+        const workId = document.querySelector("#editWorkId").value;
+        const apiUpdateUrl = `${apiUrl}/section_works/${workId}`;
+
+        try {
+          const response = await fetch(apiUpdateUrl, {
+            method: "PUT",
+            body: formData,
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const responseData = await response.json();
+          showNotification(responseData.message);
+
+          fetchWorksData();
+
+          // Close modal after submission
+          const editWorkModal = bootstrap.Modal.getInstance(
+            document.getElementById("editWorkModal")
+          );
+          editWorkModal.hide();
+        } catch (error) {
+          console.error("Error submitting form:", error);
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const addWorkForm = document.querySelector("#addWorkForm");
+        addWorkForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(addWorkForm);
+          const apiPostUrl = `${apiUrl}/section_works`;
+          try {
+            const response = await fetch(apiPostUrl, {
+              method: "POST",
+              body: formData,
+            });
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const responseData = await response.json();
+            showNotification(responseData.message);
+            fetchWorksData();
+            addWorkForm.reset();
+            // Close modal after submission
+            const addWorkModal = bootstrap.Modal.getInstance(
+              document.getElementById("addWorkModal")
+            );
+            addWorkModal.hide();
+          } catch (error) {
+            console.error("Error submitting form:", error);
+          }
+        });
+
+        fetchWorksData();
+
+        enforceWordLimit(
+          document.getElementById("heading"),
+          2,
+          "Project heading cannot exceed 2 words."
+        );
+        enforceWordLimit(
+          document.getElementById("content"),
+          10,
+          "Project content cannot exceed 10 words."
+        );
+        enforceWordLimit(
+          document.getElementById("editHeading"),
+          2,
+          "Project heading cannot exceed 2 words."
+        );
+        enforceWordLimit(
+          document.getElementById("editContent"),
+          10,
+          "Project content cannot exceed 10 words."
+        );
+      });
+    </script>
+  </body>
+</html>

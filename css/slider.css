@@ -8,6 +8,7 @@ body {
   background-color: #1e1e1e !important;
   width: 100%;
   color: white;
+  height: 200vh;
 }
 .project-heading p {
   text-align: center;
@@ -27,6 +28,11 @@ body {
   border-radius: 20px;
   object-fit: contain;
   z-index: 99999;
+}
+.project-img img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
 }
 .project-img:hover {
   mix-blend-mode: normal !important;
@@ -78,6 +84,11 @@ body {
   border-radius: 20px;
   cursor: grab;
 }
+.project-img-mobile img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
 .project-desc-mobile {
   display: flex;
   position: absolute;
@@ -119,4 +130,39 @@ body {
   font-family: borna;
   src: url(../assets/fonts/borna-medium-webfont.woff);
   src: url(../assets/fonts/borna-medium.otf);
+}
+
+.brand-name p {
+  color: rgba(233, 227, 227, 0.797) !important;
+  letter-spacing: 2px;
+  font-family: Holimount;
+  z-index: 99999;
+}
+
+@-webkit-keyframes load {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+@keyframes load {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+.brand-name {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.brand-name p {
+  font-size: 50px !important;
+  scale: 10;
 }

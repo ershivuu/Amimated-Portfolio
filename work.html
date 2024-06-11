@@ -45,70 +45,11 @@
     <div class="projects">
       <!-- Placeholder for dynamic content -->
     </div>
-    <script>
-      const projectsData = [
-        {
-          title: "Mobile Apps",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          imageSrc: "./assets/images/iposup.jpg",
-        },
-        {
-          title: "Desktop Apps",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          imageSrc: "./assets/images/medicaps.jpg",
-        },
-        {
-          title: "Mobile Apps",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          imageSrc: "./assets/images/iposup.jpg",
-        },
-      ];
-
-      function createProjectCard(data, index) {
-        const projectCard = document.createElement("div");
-        projectCard.classList.add("project-card");
-
-        const formattedIndex = ("0" + (index + 1)).slice(-2);
-        projectCard.innerHTML = `
-          <div class="project-heading">
-            <p>${formattedIndex}. ${data.title}</p>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="project-descreption">
-            <p>${data.description}</p>
-          </div>
-          <div class="goto-btn">
-            <button class="goto-btn-btn">
-              <img src="./assets/logos/arrow.png" alt="" />
-            </button>
-          </div>
-          <div class="card-img">
-            <img src="${data.imageSrc}" alt="" />
-          </div>
-        `;
-
-        return projectCard;
-      }
-
-      // Function to initialize dynamic content
-      function initializeProjects() {
-        const projectsContainer = document.querySelector(".projects");
-
-        // Loop through data and create project cards
-        projectsData.forEach((data, index) => {
-          const projectCard = createProjectCard(data, index);
-          projectsContainer.appendChild(projectCard);
-        });
-      }
-
-      // Initialize dynamic content when the page loads
-      document.addEventListener("DOMContentLoaded", () => {
-        initializeProjects();
-      });
-    </script>
+    <progress max="100" value="0"></progress>
+    <!-- GSAP Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/ScrollTrigger.min.js"></script>
+    <!-- GSAP Script -->
+    <script src="./Script/globalscript.js"></script>
   </body>
 </html>
