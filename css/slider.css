@@ -105,27 +105,9 @@ body {
   margin-top: -10px;
 }
 .wrapper-pc {
-  margin-top: -80px;
+  margin-top: -85px;
 }
-@media screen and (max-width: 767px) {
-  .wrapper-mobile {
-    display: block;
-  }
-  .wrapper-pc {
-    display: none;
-  }
-  .project-img-mobile {
-    position: relative;
-    overflow: hidden;
-    width: 300px;
-    height: 220px;
-    flex: 0 0 auto;
-    border-radius: 20px;
-  }
-  .project-heading p {
-    font-size: 50px !important;
-  }
-}
+
 @font-face {
   font-family: borna;
   src: url(../assets/fonts/borna-medium-webfont.woff);
@@ -165,4 +147,24 @@ body {
 .brand-name p {
   font-size: 50px !important;
   scale: 10;
+}
+@media screen and (max-width: 767px) {
+  .wrapper-mobile {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .wrapper-pc {
+    display: none;
+  }
+  .project-img-mobile {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 220px;
+    flex: 0 0 auto;
+    border-radius: 20px;
+  }
+  .project-heading p {
+    font-size: 50px !important;
+  }
 }

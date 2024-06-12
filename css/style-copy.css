@@ -460,6 +460,7 @@ body {
 @media screen and (max-width: 767px) {
   .signature-mobile {
     display: block;
+    margin-bottom: 30px;
   }
   .signature-pc {
     display: none;

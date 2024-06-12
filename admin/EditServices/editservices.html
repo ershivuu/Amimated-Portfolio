@@ -10,15 +10,13 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../admin.css" />
-    
   </head>
   <body>
     <div>
       <div class="edit-service">
-        <h1> Service Page</h1>
- 
+        <h1>Service Page</h1>
       </div>
-      <div class="my-3">
+      <div class="my-3 set-btn">
         <button
           type="button"
           class="btn btn-success"
@@ -28,8 +26,8 @@
           Add New Service
         </button>
       </div>
-      <div class="table-responsive" >
-        <table id="serviceTable" class="table table-bordered ">
+      <div class="table-responsive set-table">
+        <table id="serviceTable" class="table table-bordered">
           <thead>
             <tr>
               <th>Section Heading</th>
@@ -45,143 +43,141 @@
     </div>
 
     <!-- Add Service Modal -->
-     <div>
+    <div>
       <div
-      class="modal fade"
-      id="addServiceModal"
-      tabindex="-1"
-      aria-labelledby="addServiceModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="addServiceModalLabel">
-              Add New Service
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="addServiceForm">
-              <div class="mb-3">
-                <label for="section_heading" class="form-label"
-                  >Section Heading</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="section_heading"
-                  name="section_heading"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="section_content" class="form-label"
-                  >Section Content</label
-                >
-                <textarea
-                  class="form-control"
-                  id="section_content"
-                  name="section_content"
-                  required
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="section_img" class="form-label"
-                  >Section Image</label
-                >
-                <input
-                  type="file"
-                  class="form-control"
-                  id="section_img"
-                  name="section_img"
-                  required
-                />
-              </div>
-              <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+        class="modal fade"
+        id="addServiceModal"
+        tabindex="-1"
+        aria-labelledby="addServiceModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addServiceModalLabel">
+                Add New Service
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="addServiceForm">
+                <div class="mb-3">
+                  <label for="section_heading" class="form-label"
+                    >Section Heading</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="section_heading"
+                    name="section_heading"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="section_content" class="form-label"
+                    >Section Content</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="section_content"
+                    name="section_content"
+                    required
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="section_img" class="form-label"
+                    >Section Image</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="section_img"
+                    name="section_img"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    
-    </div>
       <div id="notification" class="notification"></div>
-     </div>
-
+    </div>
 
     <!-- EDIT Service Modal -->
-<div>
-  <div
-  class="modal fade"
-  id="editServiceModal"
-  tabindex="-1"
-  aria-labelledby="editServiceModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editServiceModalLabel">Edit Service</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+    <div>
+      <div
+        class="modal fade"
+        id="editServiceModal"
+        tabindex="-1"
+        aria-labelledby="editServiceModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editServiceModalLabel">
+                Edit Service
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="editServiceForm">
+                <input type="hidden" id="edit_service_id" name="service_id" />
+                <div class="mb-3">
+                  <label for="edit_section_heading" class="form-label"
+                    >Section Heading</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="edit_section_heading"
+                    name="section_heading"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="edit_section_content" class="form-label"
+                    >Section Content</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="edit_section_content"
+                    name="section_content"
+                    required
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="edit_section_img" class="form-label"
+                    >Section Image</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="edit_section_img"
+                    name="section_img"
+                  />
+                </div>
+                <div id="originalFileName"></div>
+                <button type="submit" class="btn btn-success">Update</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <form id="editServiceForm">
-          <input type="hidden" id="edit_service_id" name="service_id" />
-          <div class="mb-3">
-            <label for="edit_section_heading" class="form-label"
-              >Section Heading</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="edit_section_heading"
-              name="section_heading"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="edit_section_content" class="form-label"
-              >Section Content</label
-            >
-            <textarea
-              class="form-control"
-              id="edit_section_content"
-              name="section_content"
-              required
-            ></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="edit_section_img" class="form-label"
-              >Section Image</label
-            >
-            <input
-              type="file"
-              class="form-control"
-              id="edit_section_img"
-              name="section_img"
-            />
-          </div>
-          <div id="originalFileName"></div>
-          <button type="submit" class="btn btn-success">Update</button>
-        </form>
-      </div>
+      <div id="notification" class="notification"></div>
     </div>
-  </div>
-  
-</div>
-  <div id="notification" class="notification"></div>
-</div>
-
 
     <div
       class="modal fade"
@@ -222,29 +218,34 @@
       </div>
     </div>
 
+    <div class="note">
+      <p>
+        <span>Note:</span>For better result: Slider image dimension must be
+        626px x 417px
+      </p>
+    </div>
 
-
-<script src="../admin.js"></script>
+    <script src="../admin.js"></script>
     <script>
+      function showNotification(message) {
+        const notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.classList.add("show");
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
 
-
-function showNotification(message) {
-            const notification = document.getElementById("notification");
-            notification.textContent = message;
-            notification.classList.add("show");
-            setTimeout(() => {
-                notification.classList.remove("show");
-            }, 3000);
-        }
-
-
-        function enforceWordLimit(inputElement, wordLimit, notificationMessage) {
+      function enforceWordLimit(inputElement, wordLimit, notificationMessage) {
         inputElement.addEventListener("input", (event) => {
           const input = event.target.value.trim();
           const wordCount = input.split(/\s+/).length;
           if (wordCount > wordLimit) {
             showNotification(notificationMessage);
-            event.target.value = input.split(/\s+/).slice(0, wordLimit).join(" ");
+            event.target.value = input
+              .split(/\s+/)
+              .slice(0, wordLimit)
+              .join(" ");
           }
         });
       }
@@ -299,12 +300,13 @@ function showNotification(message) {
               .addEventListener("click", async () => {
                 const apiDeleteUrl = `${apiUrl}/section_services/${serviceId}`;
                 try {
-                  const response = await fetch(apiDeleteUrl, { method: "DELETE" });
+                  const response = await fetch(apiDeleteUrl, {
+                    method: "DELETE",
+                  });
                   if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                   }
                   fetchServicesData();
-
                 } catch (error) {
                   console.error("Error deleting service:", error);
                 }
@@ -341,68 +343,65 @@ function showNotification(message) {
         }
       }
 
-
       const editServiceForm = document.querySelector("#editServiceForm");
-        editServiceForm.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const serviceId = document.getElementById("edit_service_id").value;
-          const formData = new FormData(editServiceForm);
-          const apiUpdateUrl = `${apiUrl}/section_services/${serviceId}`;
-          try {
-            const response = await fetch(apiUpdateUrl, {
-              method: "PUT",
-              body: formData,
-            });
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const responseData = await response.json();
-            showNotification(responseData.message);
-            // Reload data after successful submission
-            fetchServicesData();
-            // Close modal after submission
-            const editServiceModal = bootstrap.Modal.getInstance(
-              document.getElementById("editServiceModal")
-            );
-            editServiceModal.hide();
-          } catch (error) {
-            console.error("Error updating service:", error);
+      editServiceForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const serviceId = document.getElementById("edit_service_id").value;
+        const formData = new FormData(editServiceForm);
+        const apiUpdateUrl = `${apiUrl}/section_services/${serviceId}`;
+        try {
+          const response = await fetch(apiUpdateUrl, {
+            method: "PUT",
+            body: formData,
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
           }
-        });
-
-
-        const addServiceForm = document.querySelector("#addServiceForm");
-        addServiceForm.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const formData = new FormData(addServiceForm);
-          const apiPostUrl = `${apiUrl}/section_services`;
-          try {
-            const response = await fetch(apiPostUrl, {
-              method: "POST",
-              body: formData,
-            });
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const responseData = await response.json();
+          const responseData = await response.json();
           showNotification(responseData.message);
-            // Reload data after successful submission
-            fetchServicesData();
-            addServiceForm.reset();
-            // Close modal after submission
-            const addServiceModal = bootstrap.Modal.getInstance(
-              document.getElementById("addServiceModal")
-            );
-            addServiceModal.hide();
-          } catch (error) {
-            console.error("Error submitting form:", error);
+          // Reload data after successful submission
+          fetchServicesData();
+          // Close modal after submission
+          const editServiceModal = bootstrap.Modal.getInstance(
+            document.getElementById("editServiceModal")
+          );
+          editServiceModal.hide();
+        } catch (error) {
+          console.error("Error updating service:", error);
+        }
+      });
+
+      const addServiceForm = document.querySelector("#addServiceForm");
+      addServiceForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(addServiceForm);
+        const apiPostUrl = `${apiUrl}/section_services`;
+        try {
+          const response = await fetch(apiPostUrl, {
+            method: "POST",
+            body: formData,
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
           }
-        });
+          const responseData = await response.json();
+          showNotification(responseData.message);
+          // Reload data after successful submission
+          fetchServicesData();
+          addServiceForm.reset();
+          // Close modal after submission
+          const addServiceModal = bootstrap.Modal.getInstance(
+            document.getElementById("addServiceModal")
+          );
+          addServiceModal.hide();
+        } catch (error) {
+          console.error("Error submitting form:", error);
+        }
+      });
 
       document.addEventListener("DOMContentLoaded", () => {
-      
-                fetchServicesData();
-                enforceWordLimit(
+        fetchServicesData();
+        enforceWordLimit(
           document.getElementById("section_heading"),
           2,
           "Section heading cannot exceed 2 words."
@@ -422,8 +421,6 @@ function showNotification(message) {
           35,
           "Section content cannot exceed 35 words."
         );
-
-   
       });
     </script>
   </body>

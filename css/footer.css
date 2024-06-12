@@ -46,5 +46,6 @@
     -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
+    padding-bottom: 20px;
   }
 }

@@ -9,7 +9,7 @@
 } */
 
 .set-main-container {
-  background-color: black;
+  background-color: #111;
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -23,7 +23,7 @@
   margin-top: 14% !important;
   width: 33% !important;
   text-align: center !important;
-  background: var(--redColor) !important;
+  background: #1a1a1a;
   color: white !important;
 }
 
@@ -35,16 +35,18 @@ input {
   display: block;
   width: 100%;
   padding: 10px;
-  /* margin-bottom: 10px; */
-  border: 1px solid #ccc;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #333;
   border-radius: 4px;
   margin-top: 10px !important;
 }
 
 button {
-  /* width: 100%; */
+  /* / width: 100%; / */
   padding: 10px;
-  background-color: green;
+  border-radius: 5px;
+  /* / background-color: green; / */
   color: white;
   border: none;
   border-radius: 4px;
@@ -56,9 +58,9 @@ button:hover {
   background-color: green;
 }
 
-/* dashboard sidebar css */
+/* / dashboard sidebar css / */
 
-/* ==========================Font========================== */
+/* / ==========================Font========================== / */
 
 @font-face {
   font-family: "robotoregular";
@@ -67,7 +69,7 @@ button:hover {
   font-style: normal;
 }
 
-/* * {
+/* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -77,19 +79,18 @@ button:hover {
 body {
     min-height: 100vh;
     background: var(--bg-primary);
-} */
-
-/* Define the new color variable for red */
-/* Define the new color variable for red */
-:root {
-  --bg-primary: #41444b;
-  --bg-secondary: #1e1e1e; /* Change background color */
-  --bg-active: #fddb3a;
-  --cl-text: #f6f4e6;
-  --redColor: #ff0000; /* Define the red color variable */
 }
 
-/* Navigation styles */
+/ Define the new color variable for red /
+/ Define the new color variable for red / */
+:root {
+  --bg-primary: #41444b;
+  --bg-secondary: #1e1e1e;
+  --bg-active: #fddb3a;
+  --cl-text: #f6f4e6;
+  --redColor: #ff0000;
+}
+
 nav {
   position: fixed;
   width: 60px;
@@ -127,16 +128,16 @@ nav ul li a {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: white; /* Set text color to white */
+  color: white;
   transition: 0.2s;
 }
 
 nav ul li a:hover {
-  color: white; /* Ensure text color remains white on hover */
+  color: white;
 }
 
 nav ul li:hover a::before {
-  background-color: var(--redColor); /* Change background color on hover */
+  background-color: var(--redColor);
   width: 100%;
 }
 
@@ -208,7 +209,7 @@ header {
   }
 }
 
-.main-section {
+.set-table {
   margin-left: 8%;
   margin-right: 4%;
 }
@@ -217,12 +218,16 @@ header {
   font-size: 24px;
 }
 
-/* Edit Services css */
+.set-btn {
+  margin-left: 8%;
+}
+
 .edit-service {
   margin-top: 55px;
   color: black;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
+  margin-left: 8%;
 }
 
 .set-label {
@@ -239,8 +244,6 @@ header {
   justify-content: space-between;
 }
 
-
-/* -----------------------Notification css ----------------------- */
 .notification {
   position: fixed;
   top: 20px;
@@ -255,4 +258,17 @@ header {
 .notification.show {
   display: block;
 }
-/* -----------------------Notification css ----------------------- */
+.note {
+  margin-left: 8%;
+  margin-right: 4%;
+  margin-right: 50px;
+}
+.note span {
+  color: #d70913;
+  font-weight: 600;
+}
+
+.note {
+  font-family: borna;
+  font-size: 16px;
+}

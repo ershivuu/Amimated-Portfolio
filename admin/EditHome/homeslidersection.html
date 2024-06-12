@@ -17,7 +17,7 @@
         <h1>Home Slider Section</h1>
       </div>
 
-      <div class="my-3">
+      <div class="my-3 set-btn">
         <button
           type="button"
           class="btn btn-success"
@@ -27,7 +27,7 @@
           Add New Slider
         </button>
       </div>
-      <div class="table-responsive">
+      <div class="table-responsive set-table">
         <table id="sliderTable" class="table table-bordered">
           <thead>
             <tr>
@@ -43,118 +43,121 @@
     </div>
 
     <!-- Add Slider Modal -->
-     <div>
-
+    <div>
       <div
-      class="modal fade"
-      id="addSliderModal"
-      tabindex="-1"
-      aria-labelledby="addSliderModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="addSliderModalLabel">Add New Slider</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="addSliderForm" enctype="multipart/form-data">
-              <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="description"
-                  name="description"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="sliderImg" class="form-label">Slider Image</label>
-                <input
-                  type="file"
-                  class="form-control"
-                  id="sliderImg"
-                  name="image"
-                  accept="image/*"
-                  required
-                />
-              </div>
-              <button type="submit" class="btn btn-primary">Add Slider</button>
-            </form>
+        class="modal fade"
+        id="addSliderModal"
+        tabindex="-1"
+        aria-labelledby="addSliderModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addSliderModalLabel">
+                Add New Slider
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="addSliderForm" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="description" class="form-label"
+                    >Description</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="description"
+                    name="description"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="sliderImg" class="form-label">Slider Image</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="sliderImg"
+                    name="image"
+                    accept="image/*"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Add Slider
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-       
+
       <div id="notification" class="notification"></div>
-     </div>
-  
+    </div>
 
     <!-- Edit Slider Modal -->
-     <div>
+    <div>
       <div
-      class="modal fade"
-      id="editSliderModal"
-      tabindex="-1"
-      aria-labelledby="editSliderModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editSliderModalLabel">Edit Slider</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="editSliderForm">
-              <input type="hidden" id="editId" name="id" />
-              <div class="mb-3">
-                <label for="editDescription" class="form-label"
-                  >Description</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="editDescription"
-                  name="description"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="editSliderImg" class="form-label"
-                  >Slider Image</label
-                >
-                <input
-                  type="file"
-                  class="form-control"
-                  id="editSliderImg"
-                  name="image"
-                />
-                <div id="originalFileName" class="mt-2"></div>
-              </div>
-              <button type="submit" class="btn btn-primary">
-                Update Slider
-              </button>
-            </form>
+        class="modal fade"
+        id="editSliderModal"
+        tabindex="-1"
+        aria-labelledby="editSliderModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editSliderModalLabel">Edit Slider</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="editSliderForm">
+                <input type="hidden" id="editId" name="id" />
+                <div class="mb-3">
+                  <label for="editDescription" class="form-label"
+                    >Description</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editDescription"
+                    name="description"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="editSliderImg" class="form-label"
+                    >Slider Image</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="editSliderImg"
+                    name="image"
+                  />
+                  <div id="originalFileName" class="mt-2"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Update Slider
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
       <div id="notification" class="notification"></div>
-     </div>
-  
+    </div>
 
     <!-- Delete Confirmation Modal -->
     <div
@@ -195,18 +198,22 @@
         </div>
       </div>
     </div>
+    <div class="note">
+      <p>
+        <span>Note:</span>For better result: Slider image dimension must be
+        645px x 360px
+      </p>
+    </div>
 
     <script>
-
-
-function showNotification(message) {
-            const notification = document.getElementById("notification");
-            notification.textContent = message;
-            notification.classList.add("show");
-            setTimeout(() => {
-                notification.classList.remove("show");
-            }, 3000);
-        }
+      function showNotification(message) {
+        const notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.classList.add("show");
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
 
       async function fetchSliderData() {
         try {
@@ -304,8 +311,6 @@ function showNotification(message) {
           return;
         }
 
-        
-
         console.log("slider data received in fillEditForm:", {
           id: slider.id,
           description: slider.description,
@@ -331,18 +336,9 @@ function showNotification(message) {
         originalFileNameContainer.appendChild(originalFileName);
       }
 
-
-
-
-
-
       const editSliderForm = document.querySelector("#editSliderForm");
       editSliderForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-
-
-
-        
 
         const formData = new FormData();
         formData.append(
@@ -381,15 +377,14 @@ function showNotification(message) {
         }
       });
 
-
-//       document.querySelector("#description").addEventListener("input", (e) => {
-//     const content = e.target.value.trim();
-//     const words = content.split(/\s+/);
-//     if (words.length > 10) {
-//         e.target.value = words.slice(0, 10).join(" "); // Limit to 20 words
-//         showNotification("Content should be 10 words or less.");
-//     }
-// });
+      //       document.querySelector("#description").addEventListener("input", (e) => {
+      //     const content = e.target.value.trim();
+      //     const words = content.split(/\s+/);
+      //     if (words.length > 10) {
+      //         e.target.value = words.slice(0, 10).join(" "); // Limit to 20 words
+      //         showNotification("Content should be 10 words or less.");
+      //     }
+      // });
 
       document.addEventListener("DOMContentLoaded", () => {
         const addSliderForm = document.querySelector("#addSliderForm");
@@ -418,26 +413,35 @@ function showNotification(message) {
           }
         });
 
+        document
+          .getElementById("description")
+          .addEventListener("input", (event) => {
+            const wordLimit = 10;
+            const input = event.target.value.trim();
+            const wordCount = input.split(/\s+/).length;
+            if (wordCount > wordLimit) {
+              showNotification("Description should not exceed 10 words.");
+              event.target.value = input
+                .split(/\s+/)
+                .slice(0, wordLimit)
+                .join(" ");
+            }
+          });
 
-        document.getElementById("description").addEventListener("input", (event) => {
-      const wordLimit = 10;
-      const input = event.target.value.trim();
-      const wordCount = input.split(/\s+/).length;
-      if (wordCount > wordLimit) {
-        showNotification("Description should not exceed 10 words.");
-        event.target.value = input.split(/\s+/).slice(0, wordLimit).join(" ");
-      }
-    });
-
-    document.getElementById("editDescription").addEventListener("input", (event) => {
-      const wordLimit = 10;
-      const input = event.target.value.trim();
-      const wordCount = input.split(/\s+/).length;
-      if (wordCount > wordLimit) {
-        showNotification("Description should not exceed 10 words.");
-        event.target.value = input.split(/\s+/).slice(0, wordLimit).join(" ");
-      }
-    });
+        document
+          .getElementById("editDescription")
+          .addEventListener("input", (event) => {
+            const wordLimit = 10;
+            const input = event.target.value.trim();
+            const wordCount = input.split(/\s+/).length;
+            if (wordCount > wordLimit) {
+              showNotification("Description should not exceed 10 words.");
+              event.target.value = input
+                .split(/\s+/)
+                .slice(0, wordLimit)
+                .join(" ");
+            }
+          });
 
         fetchSliderData();
       });
