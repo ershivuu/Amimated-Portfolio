@@ -168,3 +168,12 @@ body {
     font-size: 50px !important;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .wrapper-mobile {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .wrapper-pc {
+    display: none;
+  }
+}

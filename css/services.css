@@ -136,7 +136,10 @@ body {
   width: 100%;
   margin-left: 50px;
 }
-
+.navbar-toggler-icon {
+  position: relative;
+  z-index: 999999;
+}
 @media screen and (max-width: 767px) {
   .white-line {
     display: none;
@@ -168,14 +171,8 @@ body {
   .vector-2 {
     display: none;
   }
-  .navbar-toggler-icon {
-    display: none !important;
-  }
 }
 @media screen and (min-width: 768px) and (max-width: 1320px) {
-  .navbar-toggler-icon {
-    display: none !important;
-  }
   .white-line {
     display: none;
   }

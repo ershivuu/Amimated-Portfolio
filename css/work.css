@@ -133,6 +133,7 @@ body {
 }
 .projects {
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 .project-heading {
@@ -226,12 +227,17 @@ body {
     -ms-transform: rotate(2deg);
     transform: rotate(2deg);
   }
+  .projects {
+    gap: 50px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .projects {
     padding-inline: 20px;
     width: 95%;
     margin: auto;
+    margin-top: 15%;
+    gap: 100px;
   }
   .project-heading p {
     font-size: 50px;
@@ -244,4 +250,5 @@ body {
     position: relative;
     z-index: -999;
   }
+  
 }

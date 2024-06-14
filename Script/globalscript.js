@@ -1,4 +1,4 @@
-const apiUrl = " http://192.168.1.7:5000";
+const apiUrl = "http://192.168.29.192:5000";
 
 // --------------------------------Work Section work tab---------------------------------
 
@@ -422,6 +422,7 @@ fetch(`${apiUrl}/homeSectionSecond`)
   .catch((error) => console.error("Error fetching data:", error));
 
 function animateServices() {
+  gsap.registerPlugin(ScrollTrigger);
   const animateService = (element) => {
     gsap.from(element, {
       opacity: 0,

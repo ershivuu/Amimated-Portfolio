@@ -5,80 +5,6 @@ gsap.to("progress", {
 });
 
 function animateOnPC() {
-  gsap.from(".navbar-nav", {
-    opacity: 0,
-    duration: 2,
-    delay: 3,
-    x: 1000,
-  });
-  gsap.from(".navbar-brand", {
-    opacity: 1,
-    scale: 16,
-    duration: 2,
-    delay: 3,
-    x: 1680,
-    y: 530,
-  });
-  gsap.from(".ribbon", {
-    opacity: 0,
-    y: 100,
-    duration: 1,
-    delay: 4,
-  });
-  gsap.from(".modal-img", {
-    opacity: 0,
-    y: 100,
-    duration: 1,
-    delay: 4.5,
-  });
-  gsap.from(".quotes-pc", {
-    opacity: 0,
-    y: 100,
-    duration: 1,
-    delay: 4.5,
-  });
-
-  gsap.from(".skill-1", {
-    opacity: 0,
-    x: 0,
-    duration: 0.5,
-    delay: 0.5,
-    scrollTrigger: {
-      trigger: ".skill-1",
-      start: "bottom bottom-=30px",
-    },
-  });
-  gsap.from(".skill-2", {
-    opacity: 0,
-    x: -100,
-    duration: 0.5,
-    delay: 0.5,
-    scrollTrigger: {
-      trigger: ".skill-2",
-      start: "bottom bottom-=30px",
-    },
-  });
-  gsap.from(".skill-3", {
-    opacity: 0,
-    x: -200,
-    duration: 0.5,
-    delay: 1,
-    scrollTrigger: {
-      trigger: ".skill-3",
-      start: "bottom bottom-=30px",
-    },
-  });
-  gsap.from(".skill-4", {
-    opacity: 0,
-    x: -200,
-    duration: 0.5,
-    delay: 1.5,
-    scrollTrigger: {
-      trigger: ".skill-4",
-      start: "bottom bottom-=30px",
-    },
-  });
-
   gsap.registerPlugin(ScrollTrigger);
   const animateService = (element) => {
     gsap.from(element, {
@@ -94,22 +20,6 @@ function animateOnPC() {
   };
   animateService(".mail");
   animateService(".contact");
-  const animateSkillsRow2 = (element, timedelay) => {
-    gsap.from(element, {
-      opacity: 0,
-      y: -150,
-      duration: 0.5,
-      delay: timedelay,
-      scrollTrigger: {
-        trigger: ".skill-8",
-        start: "bottom bottom-=30px",
-      },
-    });
-  };
-  animateSkillsRow2(".skill-5", "2");
-  animateSkillsRow2(".skill-6", "2.5");
-  animateSkillsRow2(".skill-7", "3");
-  animateSkillsRow2(".skill-8", "3.5");
 }
 
 if (window.matchMedia("(min-width: 1024px)").matches) {
@@ -203,34 +113,6 @@ document.querySelectorAll(".work-heading").forEach((workHeading) => {
 const isDesktop = () => {
   return window.innerWidth;
 };
-
-if (isDesktop()) {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  // Call the scrollToTop function after a short delay on page load
-  window.addEventListener("load", () => {
-    setTimeout(scrollToTop, 100); // Adjust delay as needed (100 milliseconds here)
-  });
-
-  // Function to prevent scrolling for the first 3 seconds after page load
-  const preventScroll = () => {
-    // Disable scrolling by setting overflow to hidden
-    document.body.style.overflow = "hidden";
-
-    // After 3 seconds, enable scrolling by setting overflow back to auto
-    setTimeout(() => {
-      document.body.style.overflow = "auto";
-    }, 3000); // 3000 milliseconds = 3 seconds
-  };
-
-  // Call the preventScroll function when the page is loaded
-  window.addEventListener("load", preventScroll);
-}
 
 if (window.innerWidth <= 600) {
   gsap.from(".navbar-toggler-icon", {

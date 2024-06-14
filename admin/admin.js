@@ -1,6 +1,6 @@
 // -----------------BASE API URL---------------------
 // const apiUrl = "http://192.168.29.96:5000";
-const apiUrl = "http://192.168.1.7:5000";
+const apiUrl = "http://192.168.29.192:5000";
 // ------------------------------------------------
 
 // ------------------------LOGIN & LOGOUT FUNCTIONALITY-----------------------------------
@@ -41,5 +41,3 @@ function loadPage(event, url) {
   document.getElementById("contentFrame").src = url;
 }
 // ---------------------------END DASHBOARD JS----------------------------------------------
-
-
